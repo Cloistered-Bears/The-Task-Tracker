@@ -1,0 +1,20 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "semi": 0,
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "no-trailing-spaces": [2, {
+            "skipBlankLines": true
+        }],
+        "eqeqeq": 2
+    }
+}
