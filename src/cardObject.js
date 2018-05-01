@@ -1,16 +1,22 @@
-const cardData = Object.create(null, {
+const inputName = document.querySelector(".inputName")
+const inputDescription = document.querySelector(".inputDescription")
+const inputDueDate = document.querySelector(".inputDueDate")
+
+// Factory function to generate cards
+const cardGenerator = function() {
+    return Object.create(null, {
     taskName: {
-        value: "",
+        value: "inputName.value",
         enumerable: true,
         writable: true
     },
     taskDescription: {
-        value: "",
+        value: inputDescription.value,
         enumerable: true,
         writable: true
     },
     dueDate: {
-        value: "",
+        value: inputDueDate.value,
         enumerable: true,
         writable: true
     },
@@ -32,10 +38,17 @@ const cardData = Object.create(null, {
     finished: {
         value: "",
         enumerable: true,
-        writable: false
+        writable: true
     },
     // avgTime function will have to be added later - It will calculate how long a task took to complete
     avgTime: function () {
     
     }
 })
+}
+
+// Generated cards will be assned to newCard
+const newCard = cardGenerator()
+
+// Pushing new cards into the array called taskArray
+taskArray.push(newCard)
