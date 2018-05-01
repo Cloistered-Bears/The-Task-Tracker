@@ -28,8 +28,10 @@ const showCard = () => {
         taskDueDate.textContent = taskArray[taskArray.length - 1].dueDate
         card.appendChild(taskDueDate)
 
-        
-    })}
+        //jquery added it reset inputfields
+        $("input").val("");
+    })
+}
 
-    showCard()
+showCard()
 module.exports = showCard
