@@ -6,7 +6,7 @@
 
 .taskSection {
     border: 1px solid black;
-    padding: 20px;
+    padding: 5px;
     margin: 20px;
     width: 33%;
     background-color: whitesmoke;
@@ -25,4 +25,10 @@ h1 {
 
 body {
     background-color: pink;
+}
+
+.card-section {
+    border: 1px solid black;
+    margin: 2px;
+    padding: 5px;
 }

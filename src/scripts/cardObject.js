@@ -1,27 +1,25 @@
-const inputName = document.querySelector(".inputName")
-const inputDescription = document.querySelector(".inputDescription")
-const inputDueDate = document.querySelector(".inputDueDate")
+const taskArray = require("./localStorageLoad")
 
 // Factory function to generate cards
-const cardGenerator = function() {
+const cardGenerator = function(name, description, date) {
     return Object.create(null, {
     taskName: {
-        value: "inputName.value",
+        value: name,
         enumerable: true,
         writable: true
     },
     taskDescription: {
-        value: inputDescription.value,
+        value: description,
         enumerable: true,
         writable: true
     },
     dueDate: {
-        value: inputDueDate.value,
+        value: date,
         enumerable: true,
         writable: true
     },
     status: {
-        value: "",
+        value: "To Do",
         enumerable: true,
         wrtiable: true
     },
@@ -51,4 +49,6 @@ const cardGenerator = function() {
 const newCard = cardGenerator()
 
 // Pushing new cards into the array called taskArray
-taskArray.push(newCard)
+//taskArray.push(newCard)
+
+module.exports = cardGenerator
