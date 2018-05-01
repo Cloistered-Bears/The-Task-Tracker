@@ -1,0 +1,28 @@
+.taskArticle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.taskSection {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    width: 33%;
+    background-color: whitesmoke;
+}
+
+.addInfoArticle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+body {
+    background-color: pink;
+}
