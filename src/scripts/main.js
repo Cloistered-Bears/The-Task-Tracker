@@ -1,3 +1,4 @@
 const taskArray = require("./localStorageLoad")
-const showCard = require("./createCard")
-const cardObject = require("./cardObject")
+const cardGenerator = require("./cardObject")
+const idMaker = require("./idGenerator")
+const DragDropManager = require("./dropFunction")

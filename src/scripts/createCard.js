@@ -1,5 +1,7 @@
 const taskArray = require("./localStorageLoad")
 const cardGenerator = require("./cardObject")
+const idMaker = require("./idGenerator")
+const DragDropManager = require("./dropFunction")
 
 const todoSection = document.querySelector(".todoSection")
 const inputName = document.querySelector(".inputName")
@@ -14,13 +16,13 @@ const showCard = () => {
 
         let card = document.createElement("section")
         card.className = "stage card-section"
-        card.setAttribute("id", "card1")
+        card.setAttribute("id", `card-${idMaker.next().value}`);
         card.draggable = "true"
-  
-          // Gain reference of item being dragged
+
+        // Gain reference of item being dragged
         card.ondragstart = e => {
-            e.dataTransfer.setData("text", e.target.classList)
-          }
+            e.dataTransfer.setData("text", e.target.id)
+        }
         todoSection.appendChild(card)
         const taskName = document.createElement("h2")
         taskName.classList = "task-name"
@@ -37,45 +39,9 @@ const showCard = () => {
 
         //jquery added it reset inputfields
         $("input").val("");
-
-
-        
     })
 }
 
-
-
-const DragDropManager = Object.create(null, {
-    init: {
-      value: () => {
-        const stages = document.querySelectorAll(".stage")
-  
-  
-        const targets = document.querySelectorAll(".target")
-  
-        targets.forEach(target => {
-          // Dragover not supported by default. Turn that off.
-          target.ondragover = e => e.preventDefault()
-  
-          target.ondrop = e => {
-            // Enabled dropping on targets
-            e.preventDefault()
-  
-            // Determine what's being dropped
-            const data = e.dataTransfer.getData("text")
-  console.log(e.target)
-  console.log(data)
-            // Append card to target component as child
-            // TODO: This should only happen if the target has no children nodes
-            // TODO: This should not happen if the target is another stage card
-            e.target.appendChild(document.querySelector(`.${data.split(" ")[1]}`))
-          }
-        })
-      }
-    }
-  })
-  
-  DragDropManager.init()
 
 
 showCard()
