@@ -14,6 +14,9 @@ const showCard = () => {
 
         let card = document.createElement("section")
         card.className = "card-section"
+        card.setAttribute("id", "card1")
+        card.draggable = "true"
+        card.ondragstart = "drag(event)"
         todoSection.appendChild(card)
         const taskName = document.createElement("h2")
         taskName.classList = "task-name"
