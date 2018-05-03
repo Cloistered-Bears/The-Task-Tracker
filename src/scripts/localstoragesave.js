@@ -1,3 +1,3 @@
 const taskArray = []
 
-localStorage.setItem("taskArray", JSON.stringify(taskArray))
+//localStorage.setItem("taskArray", JSON.stringify(taskArray))

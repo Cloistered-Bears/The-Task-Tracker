@@ -11,10 +11,29 @@ function todoBackground(data, section) {
         card.classList.remove("yellowBackground")
         break;
         case "done":
+
         card.classList.add("yellowBackground")
         card.classList.remove("redBackground")
         break;
 
+            card.classList.add("yellowBackground")
+            card.classList.remove("redBackground")
+            const archiveButton = () => {
+                const button = document.createElement("button")
+                button.classList = "archive"
+                button.textContent = "Archive"
+                card.appendChild(button)
+            }
+            archiveButton()
+            //Deletes the card when you click the archive button. Then it will move the card information into the archive array
+            document.querySelector(".archive").addEventListener("click", function(){
+                $(".card-section").remove()
+                const taskName = event.target.parentNode.querySelector(".task-name").textContent
+                const findTask = taskArray.find(t => t.taskName === taskName)
+                archiveArray.push(findTask)
+                localStorage.setItem("archiveArray", JSON.stringify(archiveArray))
+            });
+            break;
     }
 }
 

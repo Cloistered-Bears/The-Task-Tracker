@@ -3,7 +3,7 @@ const cardGenerator = require("./cardObject")
 const idMaker = require("./idGenerator")
 const DragDropManager = require("./dropFunction")
 const archiveArray = require("./loadArchiveData")
-const addCard = require("./addCard")
+const showCard = require("./createCard")
 
 const todoSection = document.querySelector(".todoSection")
 const inputName = document.querySelector(".inputName")
@@ -11,9 +11,12 @@ const inputDescription = document.querySelector(".inputDescription")
 const inputDueDate = document.querySelector(".inputDueDate")
 const submitButton = document.querySelector(".submitButton")
 
-const showCard = () => {
-                taskArray.forEach(element => {
-                    let card = document.createElement("section")
+const addCard = () => {
+    submitButton.addEventListener("click", function () {
+        taskArray.push(cardGenerator(inputName.value, inputDescription.value, inputDueDate.value))
+        localStorage.setItem("taskArray", JSON.stringify(taskArray))
+
+        let card = document.createElement("section")
                     card.className = "stage card-section"
                     card.setAttribute("id", `card-${idMaker.next().value}`);
                     card.draggable = "true"
@@ -25,20 +28,19 @@ const showCard = () => {
 
                     const taskName = document.createElement("h2")
                     taskName.classList = "task-name"
-                    taskName.textContent = element.taskName
+                    taskName.textContent = inputName.value
                     card.appendChild(taskName)
                     const taskDescription = document.createElement("p")
                     taskDescription.classList = "task-description"
-                    taskDescription.textContent = element.taskDescription
+                    taskDescription.textContent = inputDescription.value
                     card.appendChild(taskDescription)
                     const taskDueDate = document.createElement("p")
                     taskDueDate.classList = "task-dueDate"
-                    taskDueDate.textContent = element.dueDate
+                    taskDueDate.textContent = inputDueDate.value
                     card.appendChild(taskDueDate)
-                })}
 
-                //         //jquery added it reset inputfields
-                //         $("input").val("");
-                showCard()
+    })
 
-                module.exports = showCard
+}
+addCard()
+module.exports = addCard
