@@ -29,7 +29,6 @@ function todoBackground(data, section) {
             document.querySelector(".archive").addEventListener("click", function(){
                 $(".card-section").remove()
                 const taskName = event.target.parentNode.querySelector(".task-name").textContent
-                console.log(taskName)
                 const findTask = taskArray.find(t => t.taskName === taskName)
                 archiveArray.push(findTask)
                 localStorage.setItem("archiveArray", JSON.stringify(archiveArray))
