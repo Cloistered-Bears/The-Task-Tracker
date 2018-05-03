@@ -9,6 +9,7 @@ const inputDescription = document.querySelector(".inputDescription")
 const inputDueDate = document.querySelector(".inputDueDate")
 const submitButton = document.querySelector(".submitButton")
 
+// Creates card
 const showCard = () => {
     submitButton.addEventListener("click", function () {
         taskArray.push(cardGenerator(inputName.value, inputDescription.value, inputDueDate.value))
@@ -24,14 +25,20 @@ const showCard = () => {
             e.dataTransfer.setData("text", e.target.id)
         }
         todoSection.appendChild(card)
+
+        // creates header "Task Name" element for card
         const taskName = document.createElement("h2")
         taskName.classList = "task-name"
         taskName.textContent = taskArray[taskArray.length - 1].taskName
         card.appendChild(taskName)
+
+        // creates paragraph "Task Description" element for card
         const taskDescription = document.createElement("p")
         taskDescription.classList = "task-description"
         taskDescription.textContent = taskArray[taskArray.length - 1].taskDescription
         card.appendChild(taskDescription)
+
+        // creates paragraph "Task Due Date" element for due date
         const taskDueDate = document.createElement("p")
         taskDueDate.classList = "task-dueDate"
         taskDueDate.textContent = taskArray[taskArray.length - 1].dueDate
@@ -39,10 +46,10 @@ const showCard = () => {
 
         //jquery added it reset inputfields
         $("input").val("");
+
     })
 }
 
-
-
 showCard()
+
 module.exports = showCard
