@@ -2,6 +2,7 @@ const taskArray = require("./localStorageLoad")
 const cardGenerator = require("./cardObject")
 const idMaker = require("./idGenerator")
 const DragDropManager = require("./dropFunction")
+const archiveArray = require("./loadArchiveData")
 
 const todoSection = document.querySelector(".todoSection")
 const inputName = document.querySelector(".inputName")
