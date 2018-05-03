@@ -1,7 +1,3 @@
-
-const archiveArray = require("./loadArchiveData")
-const taskArray = require("./localStorageLoad")
-const idMaker = require("./idGenerator")
 // Installed notie notification package.  This allows it to be called for alerts
 const notie = require("notie")
 
@@ -11,30 +7,14 @@ function todoBackground(data, section) {
     const lane = section.id
     switch (lane) {
         case "doing":
-            card.classList.add("redBackground")
-            card.classList.remove("yellowBackground")
-            $(".archive").remove();
-            break;
+        card.classList.add("redBackground")
+        card.classList.remove("yellowBackground")
+        break;
         case "done":
-            card.classList.add("yellowBackground")
-            card.classList.remove("redBackground")
-            const archiveButton = () => {
-                const button = document.createElement("button")
-                button.classList = "archive"
-                button.textContent = "Archive"
-                card.appendChild(button)
-            }
-            archiveButton()
-            //Deletes the card when you click the archive button. Then it will move the card information into the archive array
-            document.querySelector(".archive").addEventListener("click", function(){
-                $(".card-section").remove()
-                const taskName = event.target.parentNode.querySelector(".task-name").textContent
-                console.log(taskName)
-                const findTask = taskArray.find(t => t.taskName === taskName)
-                archiveArray.push(findTask)
-                localStorage.setItem("archiveArray", JSON.stringify(archiveArray))
-            });
-            break;
+        card.classList.add("yellowBackground")
+        card.classList.remove("redBackground")
+        break;
+
     }
 }
 
@@ -48,7 +28,7 @@ const DragDropManager = Object.create(null, {
             targets.forEach(target => {
                 // Dragover not supported by default. Turn that off.
                 target.ondragover = e => e.preventDefault()
-
+                
                 target.ondrop = (e) => {
                     // Enabled dropping on targets
                     // Does not allow cards to be dropped into To Do column
@@ -60,12 +40,12 @@ const DragDropManager = Object.create(null, {
                     
                     // Append card to target component as child
                     // TODO: This should only happen if the target has no children nodes
-                    // TODO: This should not happen if the target is another stage card
+                     // TODO: This should not happen if the target is another stage card
                     target.appendChild(document.getElementById(data))
                     todoBackground(data, target)
                 } else {
                     // displays notie alert when card is moved back into To Do Column
-                    notie.alert({ type: 3, text: "YOU SHALL NOT PASS!", time: 3 }) // Hides after 3 seconds
+                    notie.alert({ type: 3, text: "", time: 2 }) // Hides after 2 seconds
                 }}
             })
         }
