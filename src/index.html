@@ -8,6 +8,14 @@
     <title>Task Tracker</title>
     <link href="styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+    <style>
+        /* override style for alert bar */
+    .notie-container {
+        box-shadow: none;
+        background-color: red;
+      }
+    </style>
 </head>
 
 
@@ -28,6 +36,7 @@
         <section id="doing" class="target taskSection doingSection" ondrop="drop(event, lane)">Doing:</section>
         <section id="done" class="target taskSection doneSection">Done:</section>
     </article>
+    <script src="https://unpkg.com/notie"></script>
     <script src="./bundle.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js " integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin=" anonymous "></script>
 </body>
