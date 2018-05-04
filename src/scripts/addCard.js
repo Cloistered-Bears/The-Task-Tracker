@@ -2,7 +2,7 @@ const getData = require("./localStorageLoad")
 const cardGenerator = require("./cardObject")
 const idMaker = require("./idGenerator")
 const DragDropManager = require("./dropFunction")
-const archiveArray = require("./loadArchiveData")
+const getArchiveData = require("./loadArchiveData")
 const showCard = require("./createCard")
 
 const todoSection = document.querySelector(".todoSection")

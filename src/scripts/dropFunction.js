@@ -1,7 +1,7 @@
 // Installed notie notification package.  This allows it to be called for alerts
 const notie = require("notie")
-const taskArray = require("./localStorageLoad")
-const archiveArray = require("./loadArchiveData")
+const getData = require("./localStorageLoad")
+const getArchiveData = require("./loadArchiveData")
 
 // changes background color of cards when moved to Doing and Done columns
 function todoBackground(data, section) {
@@ -28,6 +28,8 @@ function todoBackground(data, section) {
         archiveButton()
             //Deletes the card when you click the archive button. Then it will move the card information into the archive array
             document.querySelector(".archive").addEventListener("click", function(){
+                const archiveArray = getArchiveData()
+                const taskArray = getData()
                 $(".card-section").remove()
                 const taskName = event.target.parentNode.querySelector(".task-name").textContent
                 const findTask = taskArray.find(t => t.taskName === taskName)

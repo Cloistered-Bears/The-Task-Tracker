@@ -1,4 +1,4 @@
-const taskArray = require("./localStorageLoad")
+const getData = require("./localStorageLoad")
 
 // Factory function to generate cards
 const cardGenerator = function(name, description, date) {
