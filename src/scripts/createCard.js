@@ -1,4 +1,4 @@
-const taskArray = require("./localStorageLoad")
+const getData = require("./localStorageLoad")
 const cardGenerator = require("./cardObject")
 const idMaker = require("./idGenerator")
 const DragDropManager = require("./dropFunction")
@@ -12,6 +12,7 @@ const inputDueDate = document.querySelector(".inputDueDate")
 const submitButton = document.querySelector(".submitButton")
 
 const showCard = () => {
+        const taskArray = getData()
                 taskArray.forEach(element => {
                     let card = document.createElement("section")
                     card.className = "stage card-section"

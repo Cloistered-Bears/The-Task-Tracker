@@ -1,4 +1,4 @@
-const taskArray = require("./localStorageLoad")
+const getData = require("./localStorageLoad")
 const cardGenerator = require("./cardObject")
 const idMaker = require("./idGenerator")
 const DragDropManager = require("./dropFunction")
@@ -10,6 +10,8 @@ const inputName = document.querySelector(".inputName")
 const inputDescription = document.querySelector(".inputDescription")
 const inputDueDate = document.querySelector(".inputDueDate")
 const submitButton = document.querySelector(".submitButton")
+
+const taskArray = getData()
 
 const addCard = () => {
     submitButton.addEventListener("click", function () {
